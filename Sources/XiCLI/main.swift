@@ -12,22 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-public struct Arguments {
-    var fileInputs: [String] = []
-    var wait: Bool = false
-    var help: Bool = false
-    
-    public init(arguments: [String] = CommandLine.arguments) {
-        let actualArgs = Array(arguments.dropFirst())
-        for arg in actualArgs {
-            if arg == "--wait" || arg == "-w" {
-                self.wait = true
-            } else if arg == "--help" || arg == "-h" {
-                self.help = true
-            } else {
-                self.fileInputs.append(arg)
-            }
-        }
-    }
-}
+import XiCLICore
 
+Xi.main()

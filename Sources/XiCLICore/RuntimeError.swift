@@ -1,4 +1,4 @@
-// Copyright 2018 The xi-editor Authors.
+// Copyright 2020 The xi-editor Authors.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,14 +13,11 @@
 // limitations under the License.
 
 import Foundation
-import XiCliCore
 
-let args = Arguments()
-let tool = CommandLineTool(args: args)
-
-do {
-    try tool.run()
-} catch {
-    print("Whoops! An error occurred: \(error)")
-    exit(1)
+struct RuntimeError: Error, CustomStringConvertible {
+    var description: String
+    
+    init(_ description: String) {
+        self.description = description
+    }
 }
